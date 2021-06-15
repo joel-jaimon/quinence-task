@@ -17,13 +17,24 @@ app.get("/cognito-userpool-id", (req, res) => {
 });
 
 app.get("/get-users", async (req, res) => {
-  const data = await cognito.listUsers({
-    AttributesToGet: ["email"],
-  });
-
-  res.send({
-    res: JSON.parse(JSON.stringify(data)),
-  });
+  return await cognito.listUsers(
+    {
+      UserPoolId: process.env.COGNITO_CLIENT_ID,
+      AttributesToGet: ["email"],
+    },
+    (err, data) => {
+      if (err) {
+        res.json({
+          res: err,
+        });
+        console.log("err", err);
+      } else {
+        res.json({
+          res: data,
+        });
+      }
+    }
+  );
 });
 
 app.listen(port, () => {

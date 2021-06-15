@@ -1,0 +1,39 @@
+.signup-container {
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    text-align: left;
+    label {
+      margin-bottom: 5px;
+      color: whitesmoke;
+    }
+    input {
+      margin-bottom: 20px;
+      height: 30px;
+      font-size: 18px;
+      outline: none;
+      border: none;
+      border-radius: 5px;
+      color: black;
+    }
+    button {
+      height: 45px;
+      border-radius: 5px;
+      outline: none;
+      font-size: 18px;
+      background-color: rgb(21, 21, 21);
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .err-msg {
+    position: fixed;
+    bottom: 10px;
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+    left: 0;
+  }
+}
