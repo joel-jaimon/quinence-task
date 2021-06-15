@@ -11,19 +11,19 @@ app.use(
   })
 );
 
-app.get("/cognito-clientid", (req, res) => {
+app.post("/cognito-clientid", (req, res) => {
   res.json({
     clientId: process.env.COGNITO_CLIENT_ID,
   });
 });
 
-app.get("/cognito-userpool-id", (req, res) => {
+app.post("/cognito-userpool-id", (req, res) => {
   res.json({
     userPoolId: process.env.COGNITO_USER_POOL_ID,
   });
 });
 
-app.get("/get-users", async (req, res) => {
+app.post("/get-users", async (req, res) => {
   return await cognito.listUsers(
     {
       UserPoolId: process.env.COGNITO_CLIENT_ID,

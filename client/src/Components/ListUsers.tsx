@@ -10,7 +10,9 @@ const ListUsers = ({ setModal }: any) => {
 
   const fetchUsers = async () => {
     setLoading(true);
-    await fetch(`${process.env.REACT_APP_SERVER_URL}/get-users`)
+    await fetch(`${process.env.REACT_APP_SERVER_URL}/get-users`, {
+      method: "POST",
+    })
       .then((res) => res.json())
       .then((data) => {
         setUsers(data.res.Users);
